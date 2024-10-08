@@ -141,7 +141,6 @@ void loop() {
       Serial.println(F("lendo da memoria"));
       int address = 8;
       int memoria = lerDaEEPROM(0);
-      unsigned int qBranco = lerDaEEPROM(2);
       unsigned int maior = 4;
       for (int i = 1; i < memoria; i++) {
         if (lerDaEEPROM(address + 2) > lerDaEEPROM(maior + 2)) {
@@ -155,7 +154,7 @@ void loop() {
         Serial.print(F(" foi votado "));
         if (address == maior) {
           address += 2;
-          Serial.print(lerDaEEPROM(address) + qBranco);
+          Serial.print(lerDaEEPROM(address) + lerDaEEPROM(2));
         }
         else {
           address += 2;
